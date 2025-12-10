@@ -48,6 +48,27 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
     },
+          keyframes: {
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(6px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+      },
+      animation: {
+        fadeInUp: "fadeInUp 0.6s ease-out forwards",
+        shimmer: "shimmer 2.2s linear infinite",
+      },
+      backgroundSize: {
+        "200": "200% 100%",
+      },
+      backgroundImage: {
+        shimmer:
+          "linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.6) 50%, rgba(255,255,255,0) 100%)",
+      },
   },
   plugins: [require("tailwindcss-animate")],
 };
