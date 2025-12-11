@@ -5,7 +5,7 @@ interface ProjectCard {
     title: string;
     description: string;
     tags: string[];
-    image?: string;
+    image?: string[];
     link?: string;
 }
 export default function useProjectCards() {

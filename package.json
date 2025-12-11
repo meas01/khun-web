@@ -19,6 +19,7 @@
     "axios": "^1.13.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.23.26",
     "hono": "4.8.2",
     "lucide-react": "^0.555.0",
     "react": "19.0.0",
@@ -55,7 +56,6 @@
     "lint": "eslint .",
     "preview": "npm run build && vite preview",
     "server": "json-server --watch data.json --port 3001"
-
   },
   "type": "module"
 }

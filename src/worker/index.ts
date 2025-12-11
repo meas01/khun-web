@@ -34,13 +34,14 @@ const projects = [
   }
 ];
 import image from "@/react-app/assets/image.png";
+import image2 from "@/react-app/assets/RaksmeySean.jpg";
 const projectsCard = [
    {
      "id": "",
     "title": "Booking Rooms ផ្ទះខ្មែរ (Full-Stack)",
     "description": "A web platform where users can book rooms day-by-day and pay securely using credit cards (Stripe) or KHQR (Bakong Merchant). Led the project as Team Leader.",
     "tags": ["Laravel", "Vue.js", "Stripe", "KHQR", "Bakong API", "MySQL"],
-    "image": [image],
+    "image": [image,image2],
     "link": "https://booking-rooms.example.com"
    }
 ]
