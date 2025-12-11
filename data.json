@@ -1,0 +1,25 @@
+{
+    "projects": [
+       {
+    "id":"2wwqwqw",
+    "name": "Booking Rooms ផ្ទះខ្មែរ (Full-Stack)",
+    "description":
+      "A web platform where users can book rooms day-by-day and pay securely using credit cards (Stripe) or KHQR (Bakong Merchant). Led the project as Team Leader.",
+    "tech": ["Laravel", "Vue.js", "Stripe", "KHQR", "Bakong API", "MySQL"]
+  },
+  {
+    "id":"idiiidsddw",
+    "name": "AI Online Shop",
+    "description":
+      "E-commerce platform with AI-powered product recommendations and intelligent search features.",
+    "tech": ["Laravel", "AI/ML", "Vue.js", "MySQL"]
+  },
+  { 
+    "id":"jdjdjdjjd",
+    "name": "Flipper Bird & Fun Canvas Projects",
+    "description":
+    "Interactive game development and creative canvas-based web applications showcasing frontend skills.",
+    "tech": ["JavaScript", "HTML5 Canvas", "CSS3", "Game Development"]
+  }
+    ]
+}

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import profile from "@/react-app/assets/RaksmeySean.jpg";
-import { Github, Linkedin, Mail, ExternalLink, Code2, Palette, Smartphone, FileText } from "lucide-react";
-
+import { Github, Linkedin, Mail, Code2, Palette, Smartphone, FileText } from "lucide-react";
+import ProjectCardList from "@/components/project/ProjectCardList";
 export default function MainPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
@@ -16,7 +16,7 @@ export default function MainPage() {
             <a href="#skills" className="text-gray-700 hover:text-blue-600 transition">Skills</a>
             <a href="#projects" className="text-gray-700 hover:text-blue-600 transition">Projects</a>
             <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
-            <Link to="/cv" className="text-gray-700 hover:text-blue-600 transition">CV</Link>
+            <Link to="https://drive.google.com/file/d/18RST1vRvmPktnVa2q6dNP15y95MWJYT1/view?usp=sharing" className="text-gray-700 hover:text-blue-600 transition">CV</Link>
             <Link to="/users" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
               Dashboard
             </Link>
@@ -29,13 +29,13 @@ export default function MainPage() {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-              👋 Welcome to my portfolio
+              Welcome to my portfolio
             </div>
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
               Hi, I'm Sean Raksmey<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Sean Raksmey</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
-              Full Stack Developer & UI/UX Enthusiast specializing in building exceptional digital experiences.
+              Full Stack Developer specializing in building exceptional digital experiences.
             </p>
             <div className="flex gap-4">
               <a href="#contact" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium">
@@ -44,7 +44,7 @@ export default function MainPage() {
               <a href="#projects" className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-blue-600 hover:text-blue-600 transition font-medium">
                 View Projects
               </a>
-              <Link to="/cv" className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-medium inline-flex items-center gap-2">
+              <Link to="https://drive.google.com/file/d/18RST1vRvmPktnVa2q6dNP15y95MWJYT1/view?usp=sharing" className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-medium inline-flex items-center gap-2">
                 <FileText size={20} />
                 View My CV
               </Link>
@@ -120,21 +120,7 @@ export default function MainPage() {
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Featured Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ProjectCard
-              title="E-Commerce Platform"
-              description="A full-stack e-commerce solution with payment integration and admin dashboard."
-              tags={["React", "Node.js", "PostgreSQL"]}
-            />
-            <ProjectCard
-              title="Task Management App"
-              description="Collaborative task management tool with real-time updates and team features."
-              tags={["Vue.js", "Firebase", "Tailwind"]}
-            />
-            <ProjectCard
-              title="Portfolio Website"
-              description="Modern, responsive portfolio showcasing projects and skills with smooth animations."
-              tags={["React", "TypeScript", "Framer Motion"]}
-            />
+            <ProjectCardList />
           </div>
         </div>
       </section>
@@ -181,25 +167,6 @@ function SkillCard({ icon, title, skills }: { icon: React.ReactNode; title: stri
           </li>
         ))}
       </ul>
-    </div>
-  );
-}
-
-function ProjectCard({ title, description, tags }: { title: string; description: string; tags: string[] }) {
-  return (
-    <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition border border-gray-100 group">
-      <div className="flex justify-between items-start mb-4">
-        <h3 className="text-xl font-bold text-gray-900">{title}</h3>
-        <ExternalLink className="text-gray-400 group-hover:text-blue-600 transition" size={20} />
-      </div>
-      <p className="text-gray-600 mb-4 leading-relaxed">{description}</p>
-      <div className="flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span key={tag} className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-            {tag}
-          </span>
-        ))}
-      </div>
     </div>
   );
 }

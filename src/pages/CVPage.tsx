@@ -1,5 +1,6 @@
 import { Mail, Phone, Github, Linkedin, MapPin, Calendar, Briefcase, GraduationCap, Code, ExternalLink } from "lucide-react";
 import profile from "@/react-app/assets/RaksmeySean.jpg";
+import ProjectFetcher from "@/components/project/ProjectFetcher";
 
 export default function CVPage() {
   return (
@@ -153,21 +154,7 @@ export default function CVPage() {
 
           {/* Projects */}
           <Section title="Notable Projects" icon={<Code size={24} />}>
-            <ProjectItem
-              name="Booking Rooms ផ្ទះខ្មែរ (Full-Stack)"
-              description="A web platform where users can book rooms day-by-day and pay securely using credit cards (Stripe) or KHQR (Bakong Merchant). Led the project as Team Leader."
-              tech={["Laravel", "Vue.js", "Stripe", "KHQR", "Bakong API", "MySQL"]}
-            />
-            <ProjectItem
-              name="AI Online Shop"
-              description="E-commerce platform with AI-powered product recommendations and intelligent search features."
-              tech={["Laravel", "AI/ML", "Vue.js", "MySQL"]}
-            />
-            <ProjectItem
-              name="Flipper Bird & Fun Canvas Projects"
-              description="Interactive game development and creative canvas-based web applications showcasing frontend skills."
-              tech={["JavaScript", "HTML5 Canvas", "CSS3", "Game Development"]}
-            />
+          <ProjectFetcher />
           </Section>
 
           {/* Languages */}
@@ -307,34 +294,6 @@ function SkillCategory({ category, skills }: { category: string; skills: string[
             className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm"
           >
             {skill}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-// Project Item Component
-function ProjectItem({
-  name,
-  description,
-  tech
-}: {
-  name: string;
-  description: string;
-  tech: string[];
-}) {
-  return (
-    <div className="mb-4 last:mb-0">
-      <h3 className="text-lg font-semibold text-gray-800 mb-1">{name}</h3>
-      <p className="text-gray-700 mb-2">{description}</p>
-      <div className="flex flex-wrap gap-2">
-        {tech.map((technology) => (
-          <span
-            key={technology}
-            className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium"
-          >
-            {technology}
           </span>
         ))}
       </div>
