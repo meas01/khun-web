@@ -71,7 +71,7 @@ export default function ProjectCardList() {
                   : ""
               }
               alt={data[selectedProjectIndex].title}
-              className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-lg"
+              className="max-w-[90vw] max-h-[90vh] min-w-[300px] min-h-[300px] w-auto h-auto object-contain rounded-lg shadow-lg"
             />
           </div>
         </div>
@@ -86,7 +86,7 @@ export default function ProjectCardList() {
           tags={item.tags}
           image={item.image }
           link={item.link}
-          ClickOpenImage={() => OpenImage(projectIndex, 0)}
+          ClickOpenImage={(imageIndex) => OpenImage(projectIndex, imageIndex)}
         />
       ))}
     </>

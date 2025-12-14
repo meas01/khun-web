@@ -35,13 +35,16 @@ const projects = [
 ];
 import image from "@/react-app/assets/image.png";
 import image2 from "@/react-app/assets/RaksmeySean.jpg";
+import image3 from "@/react-app/assets/hono.svg";
+import image4 from "@/react-app/assets/Cloudflare_Logo.svg";
+import image5 from "@/react-app/assets/react.svg";
 const projectsCard = [
    {
      "id": "",
     "title": "Booking Rooms ផ្ទះខ្មែរ (Full-Stack)",
     "description": "A web platform where users can book rooms day-by-day and pay securely using credit cards (Stripe) or KHQR (Bakong Merchant). Led the project as Team Leader.",
     "tags": ["Laravel", "Vue.js", "Stripe", "KHQR", "Bakong API", "MySQL"],
-    "image": [image,image2],
+    "image": [image,image2,image3,image4,image5],
     "link": "https://booking.khunmeas.site/"
    },
    {
@@ -90,7 +93,7 @@ const projectsCard = [
     "title": "Personal Portfolio (Java Backend Spring Boot)",
     "description": "My personal portfolio website to showcase my projects and skills.",
     "tags": ["React Js","TypeScript","Tailwind CSS","Vite","Spring boot" ],
-    "image": [image,image2],
+    "image": [image,image2,image],
     "link": "https://booking.khunmeas.site/"
    },
     {
