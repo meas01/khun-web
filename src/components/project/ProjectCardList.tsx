@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import useProjectCards from "@/lib/api/projectcard";
 import ProjectCard from "./ProjectCard";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -8,10 +8,6 @@ export default function ProjectCardList() {
   const [selectedImage, setSelectedImage] = useState<number>(0);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
 
-  if (isLoading) return <div>Loading projects...</div>;
-
-  if (error) return <div className="text-red-600">{error}</div>;
-  
   const closeImage = () => {
     setSelectedProjectIndex(null);
     setSelectedImage(0);
@@ -21,17 +17,43 @@ export default function ProjectCardList() {
     setSelectedProjectIndex(index);
     setSelectedImage(imageIndex);
   };
-  const nextImage = () => {
+  const nextImage = useCallback(() => { // useCallback to memoize the function
     if (selectedProjectIndex === null) return;
     const images = data[selectedProjectIndex].image || [];
     setSelectedImage((prev) => (prev === images.length - 1 ? 0 : prev + 1));
-  };
+  },[selectedProjectIndex,data]);
   
-  const prevImage = () => {
+  const prevImage =useCallback(() => {
     if (selectedProjectIndex === null) return;
     const images = data[selectedProjectIndex].image || [];
     setSelectedImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  },[selectedProjectIndex,data]);
+
+useEffect(() => {
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (selectedProjectIndex === null) return;
+
+    if (e.key === "ArrowRight") {
+      nextImage();
+    }
+
+    if (e.key === "ArrowLeft") {
+      prevImage();
+    }
   };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, [selectedProjectIndex, nextImage, prevImage]);
+
+
+  if (isLoading) return <div>Loading projects...</div>;
+
+  if (error) return <div className="text-red-600">{error}</div>;
+  
  return (
     <>
       {/* Modal */}
@@ -71,7 +93,7 @@ export default function ProjectCardList() {
                   : ""
               }
               alt={data[selectedProjectIndex].title}
-              className="max-w-[90vw] max-h-[90vh] min-w-[300px] min-h-[300px] w-auto h-auto object-contain rounded-lg shadow-lg"
+              className="max-w-[90vw] max-h-[90vh] min-w-[400px] min-h-[400px] w-auto h-auto object-contain rounded-lg shadow-lg"
             />
           </div>
         </div>
