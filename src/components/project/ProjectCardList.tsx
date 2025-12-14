@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
+import {  MoonLoader, ScaleLoader, SkewLoader, SquareLoader, SyncLoader } from "react-spinners";
+import { toast } from "react-toastify";
 import useProjectCards from "@/lib/api/projectcard";
 import ProjectCard from "./ProjectCard";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -7,6 +9,7 @@ export default function ProjectCardList() {
   const { data, isLoading, error } = useProjectCards();
   const [selectedImage, setSelectedImage] = useState<number>(0);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
+  const [imageLoading, setImageLoading] = useState(true);
 
   const closeImage = () => {
     setSelectedProjectIndex(null);
@@ -48,14 +51,33 @@ useEffect(() => {
     window.removeEventListener("keydown", handleKeyDown);
   };
 }, [selectedProjectIndex, nextImage, prevImage]);
+useEffect(()=>{
+  if(selectedProjectIndex !== null){
+    setImageLoading(true);
+  }
+}, [selectedImage, selectedProjectIndex])
 
+useEffect(() => {
+  if (error) {
+    toast.error('Error loading projects', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  }
+}, [error]);
 
-  if (isLoading) return <div>Loading projects...</div>;
-
-  if (error) return <div className="text-red-600">{error}</div>;
-  
- return (
-    <>
+return (
+  <>
+    {/* Floating Loading Spinner */}
+    {isLoading && (
+      <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-20">
+        <SyncLoader color="#6B7280"  size={8}/>
+      </div>
+    )}
       {/* Modal */}
       {selectedProjectIndex !== null && (
         <div
@@ -85,16 +107,24 @@ useEffect(() => {
               <ChevronRight size={32} />
             </button>
 
-            {/* Image */}
-            <img
-              src={
-                data[selectedProjectIndex].image
-                  ? data[selectedProjectIndex].image[selectedImage]
-                  : ""
-              }
-              alt={data[selectedProjectIndex].title}
-              className="max-w-[90vw] max-h-[90vh] min-w-[400px] min-h-[400px] w-auto h-auto object-contain rounded-lg shadow-lg"
-            />
+            {/* Image + Spinner */}
+            <div className="relative min-w-[400px] min-h-[400px] flex items-center justify-center">
+              {imageLoading && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <SquareLoader color="#FFFFFF" size={40} />
+                </div>
+              )}
+
+              <img
+                src={data[selectedProjectIndex].image?.[selectedImage]}
+                alt={data[selectedProjectIndex].title}
+                loading="lazy"
+                onLoad={() => setImageLoading(false)}
+                className={`max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-lg transition-opacity duration-300 ${
+                  imageLoading ? "opacity-0" : "opacity-100"
+                }`}
+              />
+            </div>
           </div>
         </div>
       )}

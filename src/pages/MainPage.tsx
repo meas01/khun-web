@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, lazy, Suspense } from "react";
+import { ClipLoader } from "react-spinners";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import profile from "@/react-app/assets/RaksmeySean.jpg";
 import {
   Github,
@@ -12,7 +15,9 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import ProjectCardList from "@/components/project/ProjectCardList";
+
+// Lazy load the ProjectCardList component
+const ProjectCardList = lazy(() => import("@/components/project/ProjectCardList"));
 
 export default function MainPage() {
   const [open, setOpen] = useState(false);
@@ -170,7 +175,13 @@ export default function MainPage() {
 
     {/* Grid Section */}
 <div className="grid auto-rows-fr grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <ProjectCardList />
+      <Suspense fallback={
+        <div className="col-span-full flex items-center justify-center py-12">
+          <ClipLoader color="#3B82F6" size={50} />
+        </div>
+      }>
+        <ProjectCardList />
+      </Suspense>
     </div>
 
   </div>
@@ -200,6 +211,20 @@ export default function MainPage() {
       <footer className="bg-gray-900 py-8 text-center text-gray-400 text-sm">
         © 2025 Sean Raksmey. All rights reserved.
       </footer>
+
+      {/* Toast Container */}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   );
 }

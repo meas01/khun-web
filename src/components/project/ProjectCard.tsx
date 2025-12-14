@@ -33,7 +33,7 @@ export default function ProjectCard({
     }, 3000); // Change image every 3 seconds
 
     return () => clearInterval(interval); // Clean up on unmount
-  }, [image.length]);
+  }, [image]);
   const maxDot =3;
   const getVisibleDots = () => {
     if (image!.length <= maxDot) {
@@ -76,6 +76,7 @@ export default function ProjectCard({
         <img
           src={image[currentIndex]}
           alt={title}
+          loading="lazy"
           className="w-full h-48 object-cover rounded-md cursor-pointer"
           onClick={() => ClickOpenImage?.(currentIndex)}
         />
