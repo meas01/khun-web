@@ -33,7 +33,7 @@ export default function ProjectCardList() {
     setSelectedImage((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   };
  return (
-    <div>
+    <>
       {/* Modal */}
       {selectedProjectIndex !== null && (
         <div
@@ -78,20 +78,18 @@ export default function ProjectCardList() {
       )}
 
       {/* Project Cards */}
-      <div>
-        {data.map((item, projectIndex) => (
-          <ProjectCard
-            key={item.id}
-            title={item.title}
-            description={item.description}
-            tags={item.tags}
-            image={item.image }
-            link={item.link}
-            ClickOpenImage={() => OpenImage(projectIndex, 0)}
-          />
-        ))}
-      </div>
-    </div>
+      {data.map((item, projectIndex) => (
+        <ProjectCard
+          key={item.id}
+          title={item.title}
+          description={item.description}
+          tags={item.tags}
+          image={item.image }
+          link={item.link}
+          ClickOpenImage={() => OpenImage(projectIndex, 0)}
+        />
+      ))}
+    </>
   );
 
 }

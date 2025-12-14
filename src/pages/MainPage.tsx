@@ -1,172 +1,222 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import profile from "@/react-app/assets/RaksmeySean.jpg";
-import { Github, Linkedin, Mail, Code2, Palette, Smartphone, FileText } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  // Code2,
+  // Palette,
+  // Smartphone,
+  FileText,
+  Menu,
+  X,
+} from "lucide-react";
 import ProjectCardList from "@/components/project/ProjectCardList";
+
 export default function MainPage() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md z-50 border-b">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+      {/* ================= NAV ================= */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur border-b">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+          <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
             SEAN RAKSMEY
           </h1>
-          <div className="flex gap-6 items-center">
-            <a href="#about" className="text-gray-700 hover:text-blue-600 transition">About</a>
-            <a href="#skills" className="text-gray-700 hover:text-blue-600 transition">Skills</a>
-            <a href="#projects" className="text-gray-700 hover:text-blue-600 transition">Projects</a>
-            <a href="#contact" className="text-gray-700 hover:text-blue-600 transition">Contact</a>
-            <Link to="https://drive.google.com/file/d/18RST1vRvmPktnVa2q6dNP15y95MWJYT1/view?usp=sharing" className="text-gray-700 hover:text-blue-600 transition">CV</Link>
-            <Link to="/users" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center gap-6">
+            {["about", "skills", "projects", "contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                className="text-gray-700 hover:text-blue-600 transition"
+              >
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </a>
+            ))}
+
+            <Link
+              to="https://drive.google.com/file/d/18RST1vRvmPktnVa2q6dNP15y95MWJYT1/view"
+              className="text-gray-700 hover:text-blue-600 transition"
+            >
+              CV
+            </Link>
+
+            <Link
+              to="/users"
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+            >
               Dashboard
             </Link>
           </div>
+
+          {/* Mobile Toggle */}
+          <button
+            onClick={() => setOpen(!open)}
+            className="md:hidden text-gray-700"
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        {open && (
+          <div className="md:hidden bg-white border-t px-6 py-4 space-y-4">
+            {["about", "skills", "projects", "contact"].map((item) => (
+              <a
+                key={item}
+                href={`#${item}`}
+                onClick={() => setOpen(false)}
+                className="block text-gray-700 hover:text-blue-600"
+              >
+                {item}
+              </a>
+            ))}
+            <Link to="/users" className="block font-medium text-blue-600">
+              Dashboard
+            </Link>
+          </div>
+        )}
       </nav>
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+      {/* ================= HERO ================= */}
+      <section className="pt-28 sm:pt-32 pb-20 px-4 sm:px-6">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-6 text-center lg:text-left">
+            <span className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">
               Welcome to my portfolio
-            </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 leading-tight">
-              Hi, I'm Sean Raksmey<span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Sean Raksmey</span>
+            </span>
+
+            <h1 className="text-4xl sm:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+              Hi, I'm{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Sean Raksmey
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Full Stack Developer specializing in building exceptional digital experiences.
+
+            <p className="text-base sm:text-lg text-gray-600 max-w-xl mx-auto lg:mx-0">
+              Full Stack Developer specializing in modern, scalable, and
+              user-focused web applications.
             </p>
-            <div className="flex gap-4">
-              <a href="#contact" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium">
+
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <a
+                href="#contact"
+                className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-medium"
+              >
                 Get In Touch
               </a>
-              <a href="#projects" className="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-blue-600 hover:text-blue-600 transition font-medium">
+
+              <a
+                href="#projects"
+                className="px-6 py-3 border border-gray-300 rounded-lg hover:border-blue-600 hover:text-blue-600 transition"
+              >
                 View Projects
               </a>
-              <Link to="https://drive.google.com/file/d/18RST1vRvmPktnVa2q6dNP15y95MWJYT1/view?usp=sharing" className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition font-medium inline-flex items-center gap-2">
-                <FileText size={20} />
-                View My CV
+
+              <Link
+                to="https://drive.google.com/file/d/18RST1vRvmPktnVa2q6dNP15y95MWJYT1/view"
+                className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition inline-flex items-center justify-center gap-2"
+              >
+                <FileText size={18} /> View CV
               </Link>
             </div>
-            <div className="flex gap-4 pt-4">
-              <a href="https://github.com/gitmeas02" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-600 hover:text-blue-600 transition">
-                <Github size={24} />
+
+            {/* Socials */}
+            <div className="flex justify-center lg:justify-start gap-4 pt-4">
+              <a href="https://github.com/gitmeas02">
+                <Github />
               </a>
-              <a href="https://linkedin.com/in/sean-raksmey-99118a272/" target="_blank" rel="noopener noreferrer" className="p-2 text-gray-600 hover:text-blue-600 transition">
-                <Linkedin size={24} />
+              <a href="https://linkedin.com/in/sean-raksmey-99118a272/">
+                <Linkedin />
               </a>
-              <a href="mailto:measreaksmey01@gmail.com" className="p-2 text-gray-600 hover:text-blue-600 transition">
-                <Mail size={24} />
+              <a href="mailto:measreaksmey01@gmail.com">
+                <Mail />
               </a>
             </div>
           </div>
+
+          {/* Profile */}
           <div className="flex justify-center">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full blur-3xl opacity-30"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 blur-3xl opacity-30 rounded-full"></div>
               <img
                 src={profile}
                 alt="Sean Raksmey"
-                className="relative w-80 h-80 rounded-full object-cover shadow-2xl border-8 border-white"
+                className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover border-8 border-white shadow-2xl"
               />
             </div>
           </div>
         </div>
       </section>
+      {/* ================= PROJECTS ================= */}
+    <section id="projects" className="py-20 px-6">
+  <div className="max-w-7xl mx-auto">
 
-      {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">About Me</h2>
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              I'm a passionate developer with expertise in modern web technologies. I love creating beautiful, 
-              functional, and user-friendly applications that solve real-world problems.
-            </p>
-            <p className="text-lg text-gray-700 leading-relaxed">
-              With experience in React, TypeScript, Node.js, and modern UI frameworks, I bring ideas to life 
-              through clean code and thoughtful design.
-            </p>
-          </div>
-        </div>
-      </section>
+    {/* Title Section */}
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+        My Projects
+      </h2>
+      <p className="text-gray-600 max-w-2xl mx-auto">
+        A selection of projects showcasing my skills in full-stack
+        development, frontend design, and backend architecture.
+      </p>
+    </div>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Skills & Expertise</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <SkillCard
-              icon={<Code2 size={40} />}
-              title="Frontend Development"
-              skills={["React", "TypeScript", "Tailwind CSS", "Vue.js", "Next.js"]}
-            />
-            <SkillCard
-              icon={<Palette size={40} />}
-              title="UI/UX Design"
-              skills={["Figma","Responsive Design", "User Research"]}
-            />
-            <SkillCard
-              icon={<Smartphone size={40} />}
-              title="Backend & Tools"
-              skills={["Node.js","Spring Boot", "Java", "PostgreSQL", "Git", "REST APIs"]}
-            />
-          </div>
-        </div>
-      </section>
+    {/* Grid Section */}
+<div className="grid auto-rows-fr grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <ProjectCardList />
+    </div>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-900">Featured Projects</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ProjectCardList />
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6 bg-gradient-to-br from-blue-600 to-purple-600">
-        <div className="max-w-3xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">Let's Work Together</h2>
-          <p className="text-xl mb-8 opacity-90">
-            I'm always interested in hearing about new projects and opportunities.
+  </div>
+</section>
+      {/* ================= CONTACT ================= */}
+      <section
+        id="contact"
+        className="py-20 px-6 bg-gradient-to-br from-blue-600 to-purple-600 text-white"
+      >
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          <h2 className="text-3xl sm:text-4xl font-bold">
+            Let’s Work Together
+          </h2>
+          <p className="opacity-90">
+            Open for freelance, full-time, and collaboration opportunities.
           </p>
           <a
             href="mailto:measreaksmey01@gmail.com"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg hover:shadow-2xl transition font-medium text-lg"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-lg font-medium hover:shadow-xl transition"
           >
-            <Mail size={20} />
-            Get In Touch
+            <Mail size={18} /> Get In Touch
           </a>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 px-6 bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-gray-400">
-            © 2025 Sean Raksmey. All rights reserved.
-          </p>
-        </div>
+      {/* ================= FOOTER ================= */}
+      <footer className="bg-gray-900 py-8 text-center text-gray-400 text-sm">
+        © 2025 Sean Raksmey. All rights reserved.
       </footer>
     </div>
   );
 }
 
-function SkillCard({ icon, title, skills }: { icon: React.ReactNode; title: string; skills: string[] }) {
-  return (
-    <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition border border-gray-100">
-      <div className="text-blue-600 mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-4 text-gray-900">{title}</h3>
-      <ul className="space-y-2">
-        {skills.map((skill) => (
-          <li key={skill} className="text-gray-600 flex items-center gap-2">
-            <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
-            {skill}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+// function SkillCard({ icon, title, skills }: { icon: React.ReactNode; title: string; skills: string[] }) {
+//   return (
+//     <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition border border-gray-100">
+//       <div className="text-blue-600 mb-4">{icon}</div>
+//       <h3 className="text-xl font-bold mb-4 text-gray-900">{title}</h3>
+//       <ul className="space-y-2">
+//         {skills.map((skill) => (
+//           <li key={skill} className="text-gray-600 flex items-center gap-2">
+//             <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+//             {skill}
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
