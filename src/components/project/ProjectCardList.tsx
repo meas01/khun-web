@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import {  MoonLoader, ScaleLoader, SkewLoader, SquareLoader, SyncLoader } from "react-spinners";
+import { SquareLoader, SyncLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import useProjectCards from "@/lib/api/projectcard";
 import ProjectCard from "./ProjectCard";

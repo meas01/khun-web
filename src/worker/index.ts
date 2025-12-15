@@ -6,7 +6,9 @@
 
 // export default app;
 // ===========================================================================
-/// <reference path="../../worker-configuration.d.ts" />
+// or if you need the types to be globally available without explicit import in other files:
+import '../../worker-configuration.d.ts';
+
 
 import { Hono } from "hono";
 
