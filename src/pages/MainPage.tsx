@@ -44,7 +44,7 @@ export default function MainPage() {
             ))}
 
             <Link
-              to="https://drive.google.com/file/d/18RST1vRvmPktnVa2q6dNP15y95MWJYT1/view"
+              to="https://drive.google.com/file/d/1Xp4lIBNyEvgz_ulXMgfpFyxWLbF3EMKJ/view?usp=sharing"
               className="text-gray-700 hover:text-blue-600 transition"
             >
               CV
@@ -124,7 +124,7 @@ export default function MainPage() {
               </a>
 
               <Link
-                to="https://drive.google.com/file/d/18RST1vRvmPktnVa2q6dNP15y95MWJYT1/view"
+                to="https://drive.google.com/file/d/1Xp4lIBNyEvgz_ulXMgfpFyxWLbF3EMKJ/view?usp=sharing"
                 className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition inline-flex items-center justify-center gap-2"
               >
                 <FileText size={18} /> View CV
