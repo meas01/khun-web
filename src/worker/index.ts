@@ -90,14 +90,6 @@ const projectsCard = [
     "image": [image,image2],
     "link": "https://booking.khunmeas.site/"
    },
-   {
-    "id": "",
-    "title": "Personal Portfolio (Java Backend Spring Boot)",
-    "description": "My personal portfolio website to showcase my projects and skills.",
-    "tags": ["React Js","TypeScript","Tailwind CSS","Vite","Spring boot" ],
-    "image": [image,image2,image],
-    "link": "https://booking.khunmeas.site/"
-   },
     {
     "id": "",
     "title": "Personal Portfolio (JAVA Backend Spring Boot)",
@@ -114,6 +106,14 @@ const projectsCard = [
     "image": [image,image2],
     "link": "https://booking.khunmeas.site/"
    
+   },
+   {
+    "id": "",
+    "title": "School Project CRUD spring boot",
+    "description": "A web application for managing products projects using Spring Boot and Thymeleaf.",
+    "tags": ["Spring Boot", "Thymeleaf","MySQL"],
+    "image": [image,image2],
+    "link": "https://booking.khunmeas.site/"
    }
   
 ]
