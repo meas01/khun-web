@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { config } from "../config";
 
 // API Response Interface
 interface ApiProjectCard {
@@ -34,9 +35,9 @@ const projects = async ()=>{
     // Use proxy setup from vite.config.ts (/api -> VITE_BASE_URL)
     const res = await axios.get<ApiProjectCard[]>("/api/projects");
     console.log("API Response:", res.data);
-
+    if(error) setError(null);
     // Get base URL for image transformation
-    const baseUrl = import.meta.env.VITE_BASE_URL;
+    const baseUrl = config.baseUrl;
 
     // Transform API response to match frontend interface
     const transformedData: ProjectCard[] = res.data.map(project => ({
@@ -49,12 +50,9 @@ const projects = async ()=>{
       ),
       link: project.linkedInUrl
     }));
-
-    console.log("Transformed Data:", transformedData);
     setData(transformedData);
   }catch(e){
-    console.error("Error fetching project cards:", e);
-
+    
     // Better error handling
     let errorMessage = "Failed to fetch project cards";
     if (axios.isAxiosError(e)) {
@@ -70,7 +68,8 @@ const projects = async ()=>{
     }
 
     setError(errorMessage);
-    setData([]); // Clear data on error
+    setData([]); 
+    // Clear data on error
   }finally{
     setLoading(false);
   }

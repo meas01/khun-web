@@ -19,7 +19,6 @@ export default function useProjectFetcher() {
         console.log("get data", res.data)
         setData(res.data);
       } catch (e) {
-        console.log("Error fetching projects:", e);
         setError("Failed to fetch projects");
       } finally {
         setIsLoading(false);
