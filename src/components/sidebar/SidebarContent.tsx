@@ -19,7 +19,6 @@ export default function SidebarContent({ close }: Props) {
             backgroundPosition: "center",
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
-            color: "transparent",
             padding: "0.25rem 0.5rem",
           }}
         >
