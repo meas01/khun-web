@@ -30,11 +30,6 @@ const app = new Hono<{ Bindings: Env }>();
 //     tech: ["JavaScript", "HTML5 Canvas", "CSS3", "Game Development"]
 //   }
 // ];
-import image from "@/react-app/assets/image.png";
-import image2 from "@/react-app/assets/RaksmeySean.jpg";
-import image3 from "@/react-app/assets/hono.svg";
-import image4 from "@/react-app/assets/Cloudflare_Logo.svg";
-import image5 from "@/react-app/assets/react.svg";
 
 
 // image for booking 
