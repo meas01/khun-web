@@ -61,7 +61,7 @@ import shot from "@/react-app/assets/game/shoting.png";
 import cube from "@/react-app/assets/game/cube.png";
 import ForThreeD from "@/react-app/assets/game/43D.png";
 import Box from "@/react-app/assets/game/box.png";
-
+import bird from "@/react-app/assets/game/flappy.png"
 const projectsCard = [
    {
      "id": "",
@@ -101,7 +101,7 @@ const projectsCard = [
     "title": "Flipper Bird & Fun Canvas Projects",
     "description": "A website game just for fun",
     "tags": ["HTML","CSS","Java Script"],
-    "image": [shot,cube,ForThreeD,Box],
+    "image": [bird,shot,cube,ForThreeD,Box],
     "link": "https://youtu.be/eCJb04UrFGY?si=mGfnl-JUwY-eSyCT"
    },
     {
