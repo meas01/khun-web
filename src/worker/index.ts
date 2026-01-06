@@ -49,7 +49,7 @@ import ass from "@/react-app/assets/sala/assignment.png";
 import holi from "@/react-app/assets/sala/holiday.png";
 
 // ecommerce
-import home_e from "@/react-app/assets/gooDeal/homepage.png";
+import home_e from "@/react-app/assets/goodeal/homepage.png";
 import listing_e from "@/react-app/assets/goodeal/listing.png";
 // rtc
 import rtc_overview from "@/react-app/assets/rtc/rtc.png";
