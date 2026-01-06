@@ -1,6 +1,6 @@
 import { Home, Settings, User, Users2 } from "lucide-react";
 import { NavLink } from "react-router-dom";
-import profileImage from "@/react-app/assets/image.png";
+import profileImage from "@/react-app/assets/RaksmeySean.jpg";
 
 interface Props {
   close?: () => void;

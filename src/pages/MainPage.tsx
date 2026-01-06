@@ -44,7 +44,7 @@ export default function MainPage() {
             ))}
 
             <Link
-              to="https://drive.google.com/file/d/1Xp4lIBNyEvgz_ulXMgfpFyxWLbF3EMKJ/view?usp=sharing"
+              to="https://drive.google.com/file/d/1fBxUtO6WshxTErueY6ivzIvJ3Pda7l3r/view?usp=sharing"
               className="text-gray-700 hover:text-blue-600 transition"
             >
               CV
@@ -97,7 +97,7 @@ export default function MainPage() {
 
             <h1 className="text-4xl sm:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
               Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text ">
                 Sean Raksmey
               </span>
             </h1>
@@ -124,7 +124,7 @@ export default function MainPage() {
               </a>
 
               <Link
-                to="https://drive.google.com/file/d/1Xp4lIBNyEvgz_ulXMgfpFyxWLbF3EMKJ/view?usp=sharing"
+                to="https://drive.google.com/file/d/1fBxUtO6WshxTErueY6ivzIvJ3Pda7l3r/view?usp=sharing"
                 className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition inline-flex items-center justify-center gap-2"
               >
                 <FileText size={18} /> View CV
