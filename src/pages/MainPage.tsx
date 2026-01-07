@@ -15,7 +15,6 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import ProjectFetcher from "@/components/project/ProjectFetcher";
 import SkillListing from "@/components/skills/SkillListing";
 
 // Lazy load the ProjectCardList component
