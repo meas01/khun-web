@@ -30,7 +30,22 @@ const app = new Hono<{ Bindings: Env }>();
 //     tech: ["JavaScript", "HTML5 Canvas", "CSS3", "Game Development"]
 //   }
 // ];
-
+const skills = [
+   {"id":"wqwqza","technology_name":"HTML","image":"https://cdn.simpleicons.org/html5/E34F26"},
+   {"id":"css","technology_name":"CSS","image":"https://cdn.simpleicons.org/css/264de4"},
+   {"id":"js","technology_name":"JavaScript","image":"https://cdn.simpleicons.org/javascript/F7DF1E"},
+   {"id":"ts","technology_name":"TypeScript","image":"https://cdn.simpleicons.org/typescript/3178C6"},
+   {"id":"react","technology_name":"React","image":"https://cdn.simpleicons.org/react/61DAFB"},
+   {"id":"vue","technology_name":"Vue.js","image":"https://cdn.simpleicons.org/vue.js/4FC08D"},
+   {"id":"node","technology_name":"Node.js","image":"https://cdn.simpleicons.org/node.js/339933"},
+   {"id":"express","technology_name":"Express","image":"https://cdn.simpleicons.org/express/000000"},
+   {"id":"laravel","technology_name":"Laravel","image":"https://cdn.simpleicons.org/laravel/FF2D20"},
+   {"id":"spring","technology_name":"Spring Boot","image":"https://cdn.simpleicons.org/springboot/6DB33F"},
+   {"id":"mysql","technology_name":"MySQL","image":"https://cdn.simpleicons.org/mysql/4479A1"},
+   {"id":"mongo","technology_name":"MongoDB","image":"https://cdn.simpleicons.org/mongodb/47A248"},
+   {"id":"git","technology_name":"Git","image":"https://cdn.simpleicons.org/git/F05032"},
+   {"id":"docker","technology_name":"Docker","image":"https://cdn.simpleicons.org/docker/2496ED"}
+];
 
 // image for booking 
 import home_page_booking from "@/react-app/assets/booking/home.png";
@@ -64,7 +79,7 @@ import Box from "@/react-app/assets/game/box.png";
 import bird from "@/react-app/assets/game/flappy.png"
 const projectsCard = [
    {
-     "id": "",
+     "id": "wwwww",
     "title": "Booking Rooms ផ្ទះខ្មែរ",
     "description": "A web platform where users can book rooms day-by-day and pay securely using KHQR (Bakong Merchant). Led the project as Team Leader.",
     "tags": ["Laravel", "Vue.js", "KHQR", "Bakong API", "MySQL"],
@@ -73,7 +88,7 @@ const projectsCard = [
    },
    {
      
-     "id": "",
+     "id": "wwqw",
     "title": "Ecommerce Website",
     "description": "An e-commerce website for electronics shop.",
     "tags": ["Vue.js","Json Server","Tailwind","Spring Boot"],
@@ -81,7 +96,7 @@ const projectsCard = [
     "link": "https://khun-web.khunmeas.site"
    },
    {
-     "id": "",
+     "id": "qwqwqw",
     "title": "RTC Battambong School Management",
     "description": "A website for a school management at BATTAMBONG",
     "tags": ["Vue.js","Laravel","Tailwind"],
@@ -89,7 +104,7 @@ const projectsCard = [
     "link": "https://rtc-bb.camai.kh/en/admin/overview"
    },
     {
-     "id": "",
+     "id": "ccc",
     "title": "SALA Portal",
     "description": "The School Connection App. This platform makes it simple for students, teachers, and parents to talk to each other. It also helps students and teachers view their schedules easily, and lets parents track their child's class activities",
     "tags": ["Flutter","Riverpod"],
@@ -97,7 +112,7 @@ const projectsCard = [
     "link": "https://youtu.be/lGylmA9vlvw?si=-nMYdrjyFv4LlWQc"
    },
    {
-    "id": "",
+    "id": "vd",
     "title": "Flipper Bird & Fun Canvas Projects",
     "description": "A website game just for fun",
     "tags": ["HTML","CSS","Java Script"],
@@ -105,7 +120,7 @@ const projectsCard = [
     "link": "https://youtu.be/eCJb04UrFGY?si=mGfnl-JUwY-eSyCT"
    },
     {
-    "id": "",
+    "id": "zxsd",
     "title": "Personal Portfolio Website",
     "description": "My personal portfolio website to showcase my projects and skills.",
     "tags": ["React Js","TypeScript","Tailwind CSS","Vite","Spring boot" ],
@@ -113,7 +128,7 @@ const projectsCard = [
     "link": "https://khun-web.khunmeas.site/"
    },
     {
-    "id": "",
+    "id": "12ass",
     "title": "Flow Website selling plants",
     "description": "School project website selling plants.",
     "tags": ["Flutter","Riverpod","Dummy Data"],
@@ -127,6 +142,7 @@ app.get("/api/", (c) => c.json({ name: "Cloudflare" }));
 // Projects API endpoint
 // app.get("/api/projects", (c) => c.json(projects));
 // Project Cards API endpoint
+app.get("/api/skills", (c)=> c.json(skills));
 app.get("/api/project-cards", (c) => c.json(projectsCard));
 
 export default app;

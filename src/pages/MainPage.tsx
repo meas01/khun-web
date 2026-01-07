@@ -15,6 +15,8 @@ import {
   Menu,
   X,
 } from "lucide-react";
+import ProjectFetcher from "@/components/project/ProjectFetcher";
+import SkillListing from "@/components/skills/SkillListing";
 
 // Lazy load the ProjectCardList component
 const ProjectCardList = lazy(() => import("@/components/project/ProjectCardList"));
@@ -185,6 +187,10 @@ export default function MainPage() {
     </div>
 
   </div>
+  {/*  ================= TCHNOLOGY =================   */}
+  <section id="skills" className="">
+    <SkillListing />
+  </section>
 </section>
       {/* ================= CONTACT ================= */}
       <section
